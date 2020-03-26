@@ -5,39 +5,41 @@ using TechJobs.Models;
 
 namespace TechJobs.ViewModels
 {
-    public class SearchJobsViewModel 
+    public class SearchJobsViewModel : BaseViewModel
     {
-        // TODO #7.1 - Extract members common to JobFieldsViewModel
-        // to BaseViewModel
 
         // The search results
         public List<Job> Jobs { get; set; }
-
-        // The column to search, defaults to all
-        public JobFieldType Column { get; set; } = JobFieldType.All;
 
         // The search value
         [Display(Name = "Keyword:")]
         public string Value { get; set; } = "";
 
+        // TODO #7.1 - Extract members common to JobFieldsViewModel
+        // to BaseViewModel
+
+        //public JobFieldType Column { get; set; } = JobFieldType.All;  ---- MOVED  DECLARATION TO BASEVIEWMODEL CLASS & ASSIGNMENT TO CONSTRUCTOR
+
         // All columns, for display
-        public List<JobFieldType> Columns { get; set; }
+        //public List<JobFieldType> Columns { get; set; }                   ---- MOVED TO BASEVIEWMODEL CLASS
 
         // View title
-        public string Title { get; set; } = "";
+        //public string Title { get; set; } = "";                           ---- MOVED TO BASEVIEWMODEL CLASS
 
         public SearchJobsViewModel()
         {
-            // Populate the list of all columns
+            
+            Column= JobFieldType.All;    // The column to search, defaults to all
 
-            Columns = new List<JobFieldType>();
+            // Populate the list of all columns 
 
-            foreach (JobFieldType enumVal in Enum.GetValues(typeof(JobFieldType)))
-            {
-                Columns.Add(enumVal);
-            }
+            /* Columns = new List<JobFieldType>();                           ---- MOVED TO BASEVIEWMODEL CLASS
 
-
+             foreach (JobFieldType enumVal in Enum.GetValues(typeof(JobFieldType)))
+             {
+                 Columns.Add(enumVal);
+             }*/
         }
+
     }
 }

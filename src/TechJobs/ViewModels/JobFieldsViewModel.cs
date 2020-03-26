@@ -4,24 +4,26 @@ using TechJobs.Models;
 
 namespace TechJobs.ViewModels
 {
-    public class JobFieldsViewModel
+    public class JobFieldsViewModel : BaseViewModel
     {
+        public IEnumerable<JobField> Fields { get; set; }
+
         // TODO #7.2 - Extract members common to SearchJobsViewModel
         // to BaseViewModel
 
-        // The current column
-        public JobFieldType Column { get; set; }
+        /* The current column
+        //public JobFieldType Column { get; set; }    ---- MOVED TO BASEVIEWMODEL CLASS
 
         // All fields in the given column
-        public IEnumerable<JobField> Fields { get; set; }
+
 
         // All columns, for display
-        public List<JobFieldType> Columns { get; set; }
+        //public List<JobFieldType> Columns { get; set; }     ----- MOVED TO BASEVIEWMODEL CLASS
 
         // View title
-        public string Title { get; set; } = "";
+        //public string Title { get; set; } = "";       ---- MOVED TO BASEVIEWMODEL CLASS
 
-        public JobFieldsViewModel()
+        public JobFieldsViewModel()                     ----- MOVED TO BASEVIEWMODEL CLASS
         {
             // Populate the list of all columns
 
@@ -31,8 +33,6 @@ namespace TechJobs.ViewModels
             {
                 Columns.Add(enumVal);
             }
-
-
-        }
+        } */
     }
 }
